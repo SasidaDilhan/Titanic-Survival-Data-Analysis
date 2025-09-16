@@ -2,6 +2,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
+import joblib
+import os
 
 # Load data
 df = pd.read_csv("data/train.csv")
@@ -35,3 +37,11 @@ y_pred = model.predict(X_test)
 # Evaluate
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
+
+# Make sure 'models' folder exists
+os.makedirs("models", exist_ok=True)
+
+
+# Save the trained model
+joblib.dump(model, "models/titanic_model.joblib")
+print("Model saved successfully!")
