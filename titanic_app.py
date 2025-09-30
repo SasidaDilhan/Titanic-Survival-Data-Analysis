@@ -81,3 +81,7 @@ if uploaded_file:
             # Download predictions
             csv = df.to_csv(index=False).encode()
             st.download_button("Download Predictions CSV", csv, "predictions.csv", "text/csv")
+
+            #  # Download predictions
+            # csv = df.to_csv(index=False).encode()
+            # st.download_button("Download Predictions CSV", csv, "predictions.csv", "text/csv")
